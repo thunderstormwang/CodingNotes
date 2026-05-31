@@ -48,7 +48,7 @@ for (var i = 1; i <= n; i++)
         }
         else
         {
-            dp[i][j] = Math.Max(dp[i - 1][j], dp[i - 1][j - value[i]] + value[i]);
+            dp[i][j] = Math.Max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i]);
         }
     }
 }
@@ -61,9 +61,9 @@ for (var i = 1; i <= n; i++)
 {
     for (var j = capacity; j >= 1; j--)
     {
-        if (j <= weight[i])
+        if (j >= weight[i])
         {
-            dp[j] = Math.Max(dp[j], dp[j - value[i]] + value[i]);
+            dp[j] = Math.Max(dp[j], dp[j - weight[i]] + value[i]);
         }
     }
 }
@@ -108,7 +108,7 @@ for (var i = 1; i <= n; i++)
         }
         else
         {
-            dp[i][j] = Math.Max(dp[i - 1][j], dp[i][j - value[i]] + value[i]);
+            dp[i][j] = Math.Max(dp[i - 1][j], dp[i][j - weight[i]] + value[i]);
         }
     }
 }
@@ -120,9 +120,9 @@ for (var i = 1; i <= n; i++)
 {
     for (var j = 1; j <= capacity; j++)
     {
-        if (j <= weight[i])
+        if (j >= weight[i])
         {
-            dp[j] = Math.Max(dp[j], dp[j - value[i]] + value[i]);
+            dp[j] = Math.Max(dp[j], dp[j - weight[i]] + value[i]);
         }
     }
 }
